@@ -1,8 +1,8 @@
-let numberEntered = document.getElementById('entry').value;
-let URL= 'https://dog.ceo/api/breeds/image/random/'+numberEntered;
 
 
 function getDogImages() {
+    let numberEntered = document.getElementById('entry').value;
+    let URL= 'https://dog.ceo/api/breeds/image/random/'+numberEntered;
     fetch(URL)
     .then(response => response.json())
     .then(responseJson => displayResults(responseJson))
@@ -24,19 +24,11 @@ function displayResults(responseJson){
 }
 
 
-
-function requestMorePictures(){
-    let numberEntered = document.getElementById('entry').value;
-    console.log(numberEntered);
-    
-    
-};
-
 function renderSubmitButton(){
     $('form').submit(event => {
         event.preventDefault();
         getDogImages();
-        requestMorePictures();
+        
     })
 }
 
@@ -44,4 +36,3 @@ $(function(){
     console.log('App loaded! Waiting for submit!');
     renderSubmitButton();
 });
-
